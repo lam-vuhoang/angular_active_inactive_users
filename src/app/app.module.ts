@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { UserComponent } from './user/user.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { UserComponent } from './user/user.component';
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

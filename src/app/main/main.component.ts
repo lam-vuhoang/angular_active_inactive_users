@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserType } from '../type/user.type';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-main',
@@ -6,34 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  users: {
-    id: number,
-    name: string,
-    status: boolean
-  }[] = [
-    {
-      id: 0,
-      name: 'John',
-      status: true
-    },
-    {
-      id: 1,
-      name: 'Jane',
-      status: false
-    },
-    {
-      id: 2,
-      name: 'Jim',
-      status: true
-    },
-    {
-      id: 3,
-      name: 'Jill',
-      status: false
-    }
-  ];
+  users: UserType[];
+
+  constructor(private userService: UserService) {
+    this.userService = userService;
+    this.users = this.userService.users;
+  }
 
   onChangeStatus(id: number): void {
-    this.users[id].status = !this.users[id].status;
+    this.userService.onChangeStatus(id);
   }
 }
