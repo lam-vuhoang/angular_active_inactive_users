@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <span>{{ name }}</span> | 
+        <span class="blockquote-footer">
+            <button 
+              class="btn btn-danger" 
+              *ngIf="status"
+              (click)="onChangeStatus()"
+              >
+              Set to Inactive
+            </button>
+            <button  
+              class="btn btn-success" 
+              *ngIf="!status"
+              (click)="onChangeStatus()"
+              >
+              Set to Active
+            </button>
+          </span>
+      </blockquote>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Active Users</h1>
+        </div>
+        <div class="col-md-12"
+            *ngFor="let user of users"
+        >
+            <app-user 
+                *ngIf="user.status"
+                [id]="user.id"
+                [name]="user.name"
+                [status]="user.status"
+                (changeStatus)="onChangeStatus(user.id)"
+            ></app-user>
+        </div>  
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Inactive Users</h1>
+        </div>
+        <div 
+            class="col-md-12"
+            *ngFor="let user of users"
+        >
+            <app-user
+                *ngIf="!user.status"
+                [name]="user.name"
+                [status]="user.status"
+                (changeStatus)="onChangeStatus(user.id)"
+            ></app-user>
+        </div>
+    </div>
+</div>
